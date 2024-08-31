@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
-contract Stake {
+contract StakeEther {
     //This struct might not be neccessary but i just felt like adding it
     struct User {
         string firstName;
