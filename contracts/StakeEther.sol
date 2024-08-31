@@ -1,7 +1,28 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
-contract StakeEth_2 {
+contract Stake {
+    //This struct might not be neccessary but i just felt like adding it
+    struct User {
+        string firstName;
+        string lastName;
+        address userAddress;
+        string title;
+        string description;
+        string email;
+    }
+
+        User[] users;
+    function addUser (string memory _firstName, string memory _lastName, string memory _email, address _userAddress, string memory _title, string memory _description ) onlyOwner external {
+            users.push(User({
+                firstName: _firstName,
+                lastName: _lastName,
+                email: _email,
+                userAddress: _userAddress,
+                title: _title,
+                description: _description
+            }));
+        }
 
     //function stake
 
