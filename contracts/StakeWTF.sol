@@ -3,7 +3,7 @@ pragma solidity ^0.8.17;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-contract StakeERC20 {
+contract StakeWFT {
 
     IERC20 public token;
 
@@ -12,7 +12,7 @@ contract StakeERC20 {
     * stakes => [user][amount, duration, interest]
     */
 
-    uint256 constant public MAX_DURATION = 60; // in days
+    uint256 constant public MAX_DURATION = 60; // in secs
     uint256 constant public DAYS_IN_YEAR = 365;
     uint256 constant public FIXED_RATE = 10; // RATE IN PERCENTAGE
 
@@ -31,7 +31,7 @@ contract StakeERC20 {
     Stake[] stakes;
     mapping (address => Stake[]) userStakes;
 
-    function stake(uint256 _amount) external {
+    function stakeWFT(uint256 _amount) external {
         require(msg.sender != address(0), "Address zero detected");
         require(_amount > 0, "Amount must be greater than zero");
         require(token.allowance(msg.sender, address(this)) >= _amount, "Insufficient token allowance");
